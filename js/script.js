@@ -28,9 +28,7 @@ $(function(){
 
     //ADD NEW COLUMN TO BOARD
     $('.create-column').click(function(){
-      var name = prompt('Enter a column name');
-      var column = new Column(name);
-          board.addColumn(column);
+      board.addColumn(new Column(prompt('Enter a column name')));
     });
 
     // COLUMN CLASS
@@ -56,6 +54,7 @@ $(function(){
                 self.removeColumn();
             });
             $columnAddCard.click(function(event) {
+				event.preventDefault();
                 self.addCard(new Card(prompt("Enter the name of the card")));
             });
 
@@ -115,7 +114,7 @@ $(function(){
         }
     };
     
-   /*  //INIT BOARD
+    //INIT BOARD
     //COLUMNS
     var todoColumn = new Column('To do');
     var doingColumn = new Column('Doing');
@@ -132,6 +131,6 @@ $(function(){
 
     // ADD CARDS
     todoColumn.addCard(card1);
-    doingColumn.addCard(card2); */
+    doingColumn.addCard(card2);
 
 })
